@@ -299,7 +299,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 Author
 
 **Aditya**
-- GitHub: [@yourusername](https://github.com/yourusername)
+- GitHub: [@youruseame](https://github.com/yourusername)
 - Email: your.email@example.com
 
 ---
