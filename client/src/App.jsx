@@ -8,6 +8,7 @@ import MyBooking from './pages/MyBooking'
 import Favourite from './pages/Favourite'
 import Theaters from './pages/Theaters'
 import Releases from './pages/Releases'
+import Search from './pages/Search'
 import Footer from './components/Footer'
 import { Toaster } from 'react-hot-toast'
 import Layout from './pages/admin/Layout'
@@ -33,6 +34,7 @@ const App = () => {
         <Route exact path="/movies/:id/:date" element={<SeatLayout />} />
         <Route exact path="/theaters" element={<Theaters />} />
         <Route exact path="/releases" element={<Releases />} />
+        <Route exact path="/search" element={<Search />} />
         <Route exact path="/my-bookings" element={<MyBooking />} />
         <Route exact path="/loading/:nextUrl" element={<Loading/>} />
         <Route exact path="/favourites" element={<Favourite />} />
