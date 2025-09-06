@@ -9,7 +9,8 @@
 
 <div align="center">
   <h3>From Screen to Seat in Seconds</h3>
-  <p>A modern, responsive movie booking platform built with React, Node.js, and MongoDB</p>
+  <p>ShowHive is a full-stack movie booking platform with real-time search, seat selection, secure payments, and admin management.
+Built using React, Node.js, Express, MongoDB, Tailwind CSS, and Clerk authentication.</p>
 </div>
 
 ---
