@@ -282,7 +282,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Aditya**
 - GitHub: [@aditya-cse-21](https://github.com/aditya-cse-21)
-- Email: aditya21cse@example.com
+- Email: aditya21cse@gmail.com
 
 ---
 
