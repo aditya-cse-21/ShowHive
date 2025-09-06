@@ -71,7 +71,7 @@ const HeroSection = () => {
                             
                             <button 
                                 className='flex items-center justify-center gap-3 px-8 py-4 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-semibold rounded-lg transition-all duration-300 border border-white/30 hover:border-white/50'
-                                onClick={() => { navigate('/movies') }}
+                                onClick={() => { navigate('/my-bookings') }}
                             >
                                 <Star className='w-5 h-5' />
                                 My Bookings
