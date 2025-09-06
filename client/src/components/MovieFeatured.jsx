@@ -38,9 +38,9 @@ const MovieFeatured = () => {
         </div>
         
         {/* Movies Grid */}
-        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-12'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-12 justify-items-center'>
           {shows?.filter(Boolean).slice(0,5).map((show) => (
-            <div key={show._id} className='transform hover:scale-105 transition-all duration-300'>
+            <div key={show._id} className='transform hover:scale-105 transition-all duration-300 w-full max-w-sm'>
               <MovieCard movie={show} />
             </div>
           ))}
