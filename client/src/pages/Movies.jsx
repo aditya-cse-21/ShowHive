@@ -12,7 +12,7 @@ const Movies = () => {
         <p className='text-gray-300 font-medium max-md:text-md text-lg'>Now Showing</p>
         <BlurCircle top='500px' left='0px' />
       </div>
-      <div className='flex flex-wrap justify-center gap-8 mt-8'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 mt-8 justify-items-center'>
         {shows.filter(Boolean).map((movie) => (
           movie._id ? <MovieCard key={movie._id} movie={movie} /> : null
         ))}
