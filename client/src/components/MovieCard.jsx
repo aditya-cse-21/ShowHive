@@ -5,7 +5,7 @@ import timeCalculate from '../lib/TimeCalculate';
 const MovieCard = ({movie}) => {
     const navigate = useNavigate();
   return (
-    <div className='flex flex-col justify-between p-3 bg-gray-800 rounded-2xl hover:-translate-y-1 transition duration-300 w-66' onClick={() => {navigate(`/movies/${movie._id}`),scrollTo(0,0)}}>
+    <div className='flex flex-col justify-between p-3 bg-gray-800 rounded-2xl hover:-translate-y-1 transition duration-300 w-full max-w-sm mx-auto md:w-66' onClick={() => {navigate(`/movies/${movie._id}`),scrollTo(0,0)}}>
       <img src={movie.primaryImage} alt="Image" className='rounded-lg h-52 w-full object-cover cursor-pointer' />
       <p className='font-semibold mt-2'>{movie.originalTitle}</p>
       <p className='text-sm text-gray-400 mt-2'>
