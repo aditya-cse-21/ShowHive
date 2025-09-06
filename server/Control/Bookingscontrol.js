@@ -27,6 +27,17 @@ export const createBooking = async (req, res) => {
         const { showId, selectedSeats } = req.body;
         const origin = req.headers.origin;
 
+        // Check if booking already exists for this user, show, and seats
+        const existingBooking = await Booking.findOne({
+            user: userId,
+            show: showId,
+            bookedseats: { $all: selectedSeats }
+        });
+
+        if (existingBooking) {
+            return res.json({ success: false, message: "Booking already exists for these seats" });
+        }
+
         const isAvailable = await checkavailabilty(showId, selectedSeats);
         if (!isAvailable) {
             return res.json({ success: false, message: "Selected seats are not available" });

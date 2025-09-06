@@ -97,6 +97,7 @@ const Dashboard = () => {
           </div>)
         })}
       </div>
+      
       <p className='mt-10 text-xl font-semibold'>Active Shows</p>
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 mt-8 px-2 sm:px-5'>
         {dashboardData.activeshows.length > 0 ? (dashboardData.activeshows

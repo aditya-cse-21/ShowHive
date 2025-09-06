@@ -15,6 +15,7 @@ const SeatLayout = () => {
   const [selectedTime, setSelectedTime] = useState(null);
   const [show, setShow] = useState(null);
   const [occupiedSeats,setOccupiedSeats] = useState([]);
+  const [isCreatingBooking, setIsCreatingBooking] = useState(false);
   const navigate = useNavigate();
   const groupRows = [['A', 'B'], ['C', 'D'], ['E', 'F'], ['G', 'H', 'I'], ['J', 'K', 'L']];
 
@@ -44,6 +45,10 @@ const SeatLayout = () => {
 
   const createBooking = async() => {
     try {
+      if(isCreatingBooking) {
+        return; // Prevent multiple clicks
+      }
+
       if(!user) {
         return toast.error('Please login to proceed');
       }
@@ -51,6 +56,8 @@ const SeatLayout = () => {
       if(!selectedTime || !selectedSeats.length) {
         return toast.error('Please select time and seat first');
       }
+
+      setIsCreatingBooking(true);
 
       const {data} = await axios.post(`/api/booking/create`, {showId : selectedTime.showId , selectedSeats}, {
         headers : {
@@ -63,6 +70,9 @@ const SeatLayout = () => {
             }
     } catch (error) {
       console.log(error);
+      toast.error('Failed to create booking');
+    } finally {
+      setIsCreatingBooking(false);
     }
   }
 
@@ -157,7 +167,18 @@ const SeatLayout = () => {
           </div>
         </div>
         <div className='flex justify-center mt-10 max-md:mt-0'>
-          <button onClick={createBooking} className='flex gap-2 px-8 py-3 text-md bg-primary hover:bg-primary-dull rounded-full transtion font-medium cursor-pointer max-md:px-5 max-md:text-sm my-5 max-md:pb-2'>Proceed to checkout<ArrowRight className='hover:translate-x-1 transition duration-300 max-md:w-5 max-md:pb-1' /></button>
+          <button 
+            onClick={createBooking} 
+            disabled={isCreatingBooking}
+            className={`flex gap-2 px-8 py-3 text-md rounded-full transtion font-medium cursor-pointer max-md:px-5 max-md:text-sm my-5 max-md:pb-2 ${
+              isCreatingBooking 
+                ? 'bg-gray-500 cursor-not-allowed' 
+                : 'bg-primary hover:bg-primary-dull'
+            }`}
+          >
+            {isCreatingBooking ? 'Creating...' : 'Proceed to checkout'}
+            <ArrowRight className='hover:translate-x-1 transition duration-300 max-md:w-5 max-md:pb-1' />
+          </button>
         </div>
       </div>
     </div>

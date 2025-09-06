@@ -1,4 +1,5 @@
 import { assets } from "../assets/assets";
+import ShowHiveLogo from './ShowHiveLogo';
 
 const Footer = () => {
   return (
@@ -7,7 +8,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-10 border-b border-white py-10">
           
           <div className='flex flex-col gap-4 max-w-md'>
-            <img src="/navlogo.png" alt="Logo" className='w-32 sm:w-40' />
+            <ShowHiveLogo className="w-40 h-12" />
             <p className="text-gray-300 sm:text-sm">
               Book movie tickets online with ease, explore upcoming releases, and catch the latest trailers.
             </p>
@@ -41,9 +42,10 @@ const Footer = () => {
         </div>
       </div>
 
-      <p className="text-center sm:text-sm max-md:text-xs py-4 text-gray-400">
-        © {new Date().getFullYear()} QuickShow. All Rights Reserved.
-      </p>
+      <div className="text-center sm:text-sm max-md:text-xs py-4 text-gray-400">
+        <p>© {new Date().getFullYear()} ShowHive. All Rights Reserved.</p>
+        <p className="mt-2">Made by Aditya</p>
+      </div>
     </>
   );
 };

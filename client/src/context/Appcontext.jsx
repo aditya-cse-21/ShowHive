@@ -35,6 +35,11 @@ export const AppProvider = (props) => {
             }
         } catch (error) {
             console.log(error);
+            setisAdmin(false);
+            if(location.pathname.startsWith('/admin')) {
+                navigate('/');
+                toast.error('You are not authorized to access admin panel');
+            }
         }
      }
 
@@ -59,12 +64,14 @@ export const AppProvider = (props) => {
             }})
 
             if(data.success) {
-                setFavorites(data.movies)
+                setFavorites(data.movies || [])
             } else {
-                toast.error(data.message)
+                console.log('Favorites fetch failed:', data.message);
+                setFavorites([])
             }
         } catch (error) {
-            console.log(error);
+            console.log('Error fetching favorites:', error);
+            setFavorites([])
         }
      }
     

@@ -1,27 +1,91 @@
-import { ArrowRight, Calendar1Icon, ClockIcon } from 'lucide-react'
+import { ArrowRight, Play, Star, Calendar, Clock } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
+import ShowHiveLogo from './ShowHiveLogo'
 
 const HeroSection = () => {
     const navigate = useNavigate();
     return (
-        <div className='flex flex-col items-start justify-center gap-8 px-10 md:px-14 lg:px-23 bg-[url("/backgroundImage.jpg")] bg-cover bg-center h-screen max-md:overflow-hidden max-md:bg-[url("/mobileback.jpg")] max-md:bg-center max-md:bg-cover'>
-            <div className="flex flex-col items-start justify-center max-md:text-sm mt-10 min-2xl:text-xl">
-                <img src="/MarvelLogo.png" alt="Logo" className='w-60 mx-2 max-md:w-40' />
-                <h1 className='text-6xl md: leading-18 max-w-120 font-semibold li mx-2 max-md:text-3xl max-md:leading-10'>MOON KNIGHT</h1>
-                <div className="flex mx-3 my-2 gap-6 max-sm:flex-col max-sm:gap-2 text-gray-300 max-md:font-semibold">
-                    <span>Action | Adventure | Superhero</span>
-                    <div className="flex items-center">
-                        <Calendar1Icon className='w-4 h-4 mx-1' />2022
+        <div className='relative h-screen overflow-hidden'>
+            {/* Large Background Image - ShowHive Style */}
+            <div className='absolute inset-0'>
+                <img 
+                    src="/hero-image.png" 
+                    alt="Hero Background" 
+                    className='w-full h-full object-cover object-center'
+                />
+                <div className='absolute inset-0 bg-gradient-to-r from-black/30 via-black/20 to-black/10'></div>
+                <div className='absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent'></div>
+            </div>
+            
+            {/* Content Overlay */}
+            <div className="relative z-10 h-full flex items-center">
+                <div className="container mx-auto px-6 lg:px-16">
+                    <div className="max-w-2xl">
+                        {/* Logo */}
+                        <div className='mb-8'>
+                            <ShowHiveLogo className="w-96 h-3" />
+                        </div>
+                        
+                        {/* Subtitle */}
+                        <h2 className='text-xl md:text-2xl font-semibold text-purple-300 mb-6'>
+                            From Screen to Seat in Seconds
+                        </h2>
+                        
+                        {/* Features */}
+                        <div className='flex flex-wrap items-center gap-6 mb-6'>
+                            <div className='flex items-center gap-2'>
+                                <div className='flex items-center gap-1'>
+                                    {[...Array(5)].map((_, i) => (
+                                        <Star key={i} className='w-5 h-5 fill-purple-400 text-purple-400' />
+                                    ))}
+                                </div>
+                                <span className='text-white font-semibold'>Premium Experience</span>
+                            </div>
+                            
+                            <div className='flex items-center gap-2 text-gray-300'>
+                                <Calendar className='w-4 h-4' />
+                                <span>2025</span>
+                            </div>
+                            
+                            <div className='flex items-center gap-2 text-gray-300'>
+                                <Clock className='w-4 h-4' />
+                                <span>Instant Booking</span>
+                            </div>
+                        </div>
+                        
+                        {/* Description */}
+                        <p className='text-lg text-gray-300 mb-8 leading-relaxed max-w-xl'>
+                            Experience the ultimate movie booking platform with seamless seat selection, secure payments, and instant confirmations. Your cinematic journey starts here with ShowHive.
+                        </p>
+                        
+                        {/* Action Buttons */}
+                        <div className='flex flex-col sm:flex-row gap-4'>
+                            <button 
+                                className='group flex items-center justify-center gap-3 px-8 py-4 bg-primary hover:bg-primary-dull text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-purple-500/25'
+                                onClick={() => { navigate('/movies') }}
+                            >
+                                <Play className='w-5 h-5' />
+                                Explore Movies
+                                <ArrowRight className='w-5 h-5 group-hover:translate-x-1 transition-transform' />
+                            </button>
+                            
+                            <button 
+                                className='flex items-center justify-center gap-3 px-8 py-4 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-semibold rounded-lg transition-all duration-300 border border-white/30 hover:border-white/50'
+                                onClick={() => { navigate('/movies') }}
+                            >
+                                <Star className='w-5 h-5' />
+                                My Bookings
+                            </button>
                     </div>
-                    <div className="flex items-center">
-                        <ClockIcon className='w-4 h-4 mx-1' />5hr 15min
                     </div>
                 </div>
-                <p className='max-w-md mx-3 max-md:font-semibold min-2xl:max-w-lg text-gray-300 max-md:max-w-sm'>Moon Knight follows Marc Spector, a former mercenary with Dissociative Identity Disorder, who becomes the avatar of the Egyptian moon god Khonshu.</p>
-                <button className='flex items-center px-5 py-3 max-md:px-4 text-md min-2xl:my-6 font-medium bg-primary hover:bg-primary-dull transition rounded-full cursor-pointer my-4 mx-3 max-md:text-xs' onClick={() => { navigate('/movies') }}>
-                    Explore Movies
-                    <ArrowRight className='w-5 h-5 ml-1' />
-                </button>
+            </div>
+            
+            {/* Scroll Indicator */}
+            <div className='absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce'>
+                <div className='w-6 h-10 border-2 border-purple-400/50 rounded-full flex justify-center'>
+                    <div className='w-1 h-3 bg-purple-400/50 rounded-full mt-2 animate-pulse'></div>
+                </div>
             </div>
         </div>
     )

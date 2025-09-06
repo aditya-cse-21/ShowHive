@@ -64,11 +64,12 @@ export const getfavorites = async (req, res) => {
     try {
         const userId  = req.auth().userId;
         const user = await clerkClient.users.getUser(userId);
-        const favorites = user.privateMetadata.favorites;
+        const favorites = user.privateMetadata?.favorites || [];
 
         const movies = await Movie.find({_id: {$in : favorites}});
         res.json({success: true, movies});
     } catch (error) {
-        res.json({ success: false, message: error.message });
+        console.error('Error in getfavorites:', error);
+        res.json({ success: false, message: error.message, movies: [] });
     }
 }

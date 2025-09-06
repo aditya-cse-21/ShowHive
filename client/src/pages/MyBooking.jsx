@@ -45,7 +45,7 @@ const MyBooking = () => {
       <div className="flex flex-wrap gap-6 justify-start">
         {bookings.map((data, index) => {if (!data.show?.movie) return null;
           return (<div
-            key={index}
+            key={data._id}
             className="w-full md:w-[48%] bg-primary/5 border border-primary/20 rounded-xl p-3 flex flex-col gap-4"
           >
             <div className="flex gap-4">

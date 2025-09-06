@@ -17,7 +17,6 @@ const sendEmail = async ({ to, subject, body }) => {
         html: body,
     })
     console.log("Message sent:", info.messageId);
-    console.log("Preview URL:", nodemailer.getTestMessageUrl?.(info));
     return info;
 }
 

@@ -1,16 +1,31 @@
 import { useState } from 'react';
 import BlurCircle from './BlurCircle';
 import { dummyTrailers } from '../assets/assets';
-import { PlayCircleIcon } from 'lucide-react';
+import { PlayCircleIcon, Video } from 'lucide-react';
 
 const MovieTrailer = () => {
   const [currentVideo, setCurrentVideo] = useState(dummyTrailers[0]);
 
   return (
-    <div className='px-4 sm:px-6 md:px-8 lg:px-16 xl:px-20 py-10 overflow-hidden'>
-      <p className='text-gray-300 font-medium text-lg max-md:text-sm max-w-lg pl-6 sm:pl-0'>
-        Trailers
-      </p>
+    <section className='relative py-20 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-20 overflow-hidden'>
+      {/* Background Effects */}
+      <div className='absolute inset-0 bg-gradient-to-r from-purple-500/5 via-transparent to-pink-500/5'></div>
+      <div className='absolute top-0 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl'></div>
+      <div className='absolute bottom-0 right-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl'></div>
+      
+      <div className="relative z-10">
+        {/* Section Header */}
+        <div className="mb-16">
+          <div className='flex items-center gap-3 mb-4'>
+            <Video className='w-8 h-8 text-purple-400' />
+            <h2 className='text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent'>
+              Trailers
+            </h2>
+          </div>
+          <p className='text-gray-400 text-lg max-w-md pl-6 sm:pl-0'>
+            Watch the latest movie trailers and get excited for upcoming releases
+          </p>
+        </div>
 
       <div className="relative mt-6">
         <BlurCircle top='0px' left='-100px' />
@@ -54,7 +69,8 @@ const MovieTrailer = () => {
           </div>
         ))}
       </div>
-    </div>
+      </div>
+    </section>
   );
 };
 

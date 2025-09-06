@@ -112,7 +112,6 @@ const sendbookingEmail = inngest.createFunction(
             }).populate('user');
 
             if (!booking || !booking.user || !booking.show || !booking.show.movie) {
-                console.warn(`Booking or related data missing for booking ID ${bookingId}`);
                 return;
             }
 
@@ -130,7 +129,7 @@ const sendbookingEmail = inngest.createFunction(
                 body: `
         <div style="max-width: 600px; margin: 0 auto; font-family: Arial, sans-serif; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
           <div style="background-color: #7b2cbf; color: white; padding: 20px; text-align: center;">
-            <h1 style="margin: 0;">🎟️ QuickShow Booking Confirmed!</h1>
+            <h1 style="margin: 0;">🎟️ ShowHive Booking Confirmed!</h1>
           </div>
 
           <div style="padding: 24px; font-size: 16px; color: #333;">
@@ -149,8 +148,7 @@ const sendbookingEmail = inngest.createFunction(
           <img src="${booking.show.movie.primaryImage}" alt="${booking.show.movie.originalTitle} Poster" style="width: 100%; max-height: 350px; object-fit: cover; border-radius: 4px; margin-top: 16px;" />
 
           <div style="background-color: #f5f5f5; color: #777; padding: 16px; text-align: center; font-size: 14px;">
-            <p style="margin: 0;">Thanks for booking with us!<br>— The QuickShow Team</p>
-            <p style="margin: 4px 0 0;">📍 Visit us: <a href="https://quickshow-ecru.vercel.app" style="color: #7b2cbf; text-decoration: none;">QuickShow</a></p>
+            <p style="margin: 0;">Thanks for booking with us!<br>— The ShowHive Team</p>
           </div>
         </div>`
             });
@@ -182,7 +180,7 @@ const sendNewMovieEmail = inngest.createFunction(
             </div>
 
             <div style="padding: 24px; color: #333;">
-                <h2 style="margin-top: 0;">"${movie.originalTitle}" is Now Available on QuickShow!</h2>
+                <h2 style="margin-top: 0;">"${movie.originalTitle}" is Now Available on ShowHive!</h2>
                 <p><strong>Release Date:</strong> ${movie.releaseDate}</p>
                 <p><strong>Genre:</strong> ${movie.genres.map((genre) => genre).join(', ')}</p>
                 <p>${movie.description}</p>
@@ -190,13 +188,13 @@ const sendNewMovieEmail = inngest.createFunction(
                 <img src="${movie.primaryImage}" alt="${movie.originalTitle} Poster" style="width: 100%; max-height: 350px; object-fit: cover; border-radius: 4px; margin-top: 16px;" />
 
                 <div style="margin-top: 20px; text-align: center;">
-                <a href="https://quickshow-ecru.vercel.app/movies/${movieId}" style="background-color: #7b2cbf; color: white; padding: 12px 20px; text-decoration: none; border-radius: 6px; font-weight: bold;">🎟️ Book Your Tickets</a>
+                <a href="https://showhive.vercel.app/movies/${movieId}" style="background-color: #7b2cbf; color: white; padding: 12px 20px; text-decoration: none; border-radius: 6px; font-weight: bold;">🎟️ Book Your Tickets</a>
                 </div>
             </div>
 
             <div style="background-color: #f5f5f5; color: #777; padding: 16px; text-align: center; font-size: 14px;">
-                <p style="margin: 0;">Thanks for staying with QuickShow!<br>We bring the cinema to your fingertips.</p>
-                <p style="margin: 4px 0 0;">📍 Visit us: <a href="https://quickshow-ecru.vercel.app" style="color: #7b2cbf; text-decoration: none;">QuickShow</a></p>
+                <p style="margin: 0;">Thanks for staying with ShowHive!<br>We bring the cinema to your fingertips.</p>
+                <p style="margin: 4px 0 0;">📍 Visit us: <a href="https://showhive.vercel.app" style="color: #7b2cbf; text-decoration: none;">ShowHive</a></p>
             </div>
             </div>`
 

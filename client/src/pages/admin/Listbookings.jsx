@@ -65,7 +65,7 @@ const Listbookings = () => {
 
               return (
                 <tr
-                  key={index}
+                  key={show._id}
                   className="border-b border-primary/10 bg-primary/5 even:bg-primary/10 whitespace-nowrap"
                 >
                   <td className="p-3 max-w-[180px] truncate">{userName}</td>
