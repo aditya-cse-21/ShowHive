@@ -156,14 +156,18 @@ const SeatLayout = () => {
         <img src={assets.screenImage} alt="Scrren" />
         <p className='text-sm font-medium'>SCREEN SIDE</p>
         <div className='flex flex-col items-center mt-10 w-full text-white font-medium text-xs'>
-          <div className='w-full'>{groupRows[0].map((row) => renderSeats(row))}</div>
+          <div className='w-full overflow-x-auto'>
+            <div className='min-w-max'>{groupRows[0].map((row) => renderSeats(row))}</div>
+          </div>
 
-          <div className='grid grid-cols-1 sm:grid-cols-2 gap-8 mt-6 w-full'>
-            {groupRows.slice(1).map((group, index) => (
-              <div key={index} className='flex flex-col items-center w-full'>
-                {group.map((row) => renderSeats(row))}
-              </div>
-            ))}
+          <div className='w-full overflow-x-auto mt-6'>
+            <div className='grid grid-cols-2 gap-8 min-w-max'>
+              {groupRows.slice(1).map((group, index) => (
+                <div key={index} className='flex flex-col items-center w-full'>
+                  {group.map((row) => renderSeats(row))}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
         <div className='flex justify-center mt-10 max-md:mt-0'>
