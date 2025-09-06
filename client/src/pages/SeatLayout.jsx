@@ -114,7 +114,7 @@ const SeatLayout = () => {
               <button
                 key={seatId}
                 onClick={() => handleSeatClick(seatId)}
-                className={`aspect-square rounded border border-purple-500/60 text-xs md:text-base transition ${selectedSeats.includes(seatId) && 'bg-purple-500 text-white'
+                className={`aspect-square rounded border border-primary/60 text-xs md:text-base transition ${selectedSeats.includes(seatId) && 'bg-primary text-white'
                   } 
               w-8 md:w-8 lg:w-10 @max-xs:w-6 ${occupiedSeats.includes(seatId) && 'opacity-30'}`}
                 title={seatId}
@@ -130,7 +130,7 @@ const SeatLayout = () => {
 
   return (
     <div className='flex flex-col xl:flex-row px-6 md:px-16 lg:px-24 py-12 mt-30 md:pt-10 max-sm:mt-10'>
-      <div className='relative w-60 bg-purple-500/10 border border-purple-500/20 rounded-lg py-10 h-max min-xl:sticky xl:top-30 max-xl:mt-0'>
+      <div className='relative w-60 bg-primary/10 border border-primary/20 rounded-lg py-10 h-max min-xl:sticky xl:top-30 max-xl:mt-0'>
         <BlurCircle top='-100px' left='0px' />
         <p className='text-lg font-semibold px-6'>Available Timings</p>
         <div className='mt-4 space-y-1'>
@@ -139,8 +139,8 @@ const SeatLayout = () => {
               key={item.showId}
               onClick={() => setSelectedTime(item)}
               className={`flex items-center gap-2 px-10 py-2 w-max rounded-r-md cursor-pointer transition ${selectedTime?.showId === item.showId
-                ? 'bg-purple-500 text-white'
-                : 'hover:bg-purple-500/20'
+                ? 'bg-primary text-white'
+                : 'hover:bg-primary/20'
                 }`}
             >
               <ClockIcon className='w-4 h-4' />
@@ -173,7 +173,7 @@ const SeatLayout = () => {
             className={`flex gap-2 px-8 py-3 text-md rounded-full transtion font-medium cursor-pointer max-md:px-5 max-md:text-sm my-5 max-md:pb-2 ${
               isCreatingBooking 
                 ? 'bg-gray-500 cursor-not-allowed' 
-                : 'bg-purple-500 hover:bg-purple-600'
+                : 'bg-primary hover:bg-primary-dull'
             }`}
           >
             {isCreatingBooking ? 'Creating...' : 'Proceed to checkout'}

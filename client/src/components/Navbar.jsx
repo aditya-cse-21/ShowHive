@@ -57,11 +57,11 @@ const Navbar = () => {
       </Link>
       <div className={`max-md:absolute max-md:top-0 max-md:-left-10 max-md:font-medium max-md:text-lg z-50 flex flex-col md:flex-row items-center max-md:justify-center gap-6 min-md:px-6 py-3 max-md:px-3 max-md:h-screen min-md:rounded-full backdrop-blur bg-black/70 md:bg-white/10 md:border border-gray-300/20 overflow-hidden transition-[width] duration-300 ${isOpen ? 'max-md:w-full' : 'max-md:w-0'}`}>
         <XIcon className='min-md:hidden absolute top-6 right-6 w-8 h-8 cursor-pointer' onClick={() => { setisOpen(false) }} />
-        <Link to="/" onClick={() => { scrollTo(0,0); setisOpen(false) }} className='hover:text-purple-400'>Home</Link>
-        <Link to="/movies" onClick={() => { scrollTo(0,0); setisOpen(false) }} className='hover:text-purple-400'>Movies</Link>
-        <Link to="/theaters" onClick={() => { scrollTo(0,0); setisOpen(false) }} className='hover:text-purple-400'>Theaters</Link>
-        <Link to="/releases" onClick={() => { scrollTo(0,0); setisOpen(false) }} className='hover:text-purple-400'>New Releases</Link>
-        {user && <Link to="/favourites" onClick={() => { scrollTo(0,0); setisOpen(false) }} className='hover:text-purple-400'>Favourites</Link>}
+        <Link to="/" onClick={() => { scrollTo(0,0); setisOpen(false) }} className='hover:text-primary'>Home</Link>
+        <Link to="/movies" onClick={() => { scrollTo(0,0); setisOpen(false) }} className='hover:text-primary'>Movies</Link>
+        <Link to="/theaters" onClick={() => { scrollTo(0,0); setisOpen(false) }} className='hover:text-primary'>Theaters</Link>
+        <Link to="/releases" onClick={() => { scrollTo(0,0); setisOpen(false) }} className='hover:text-primary'>New Releases</Link>
+        {user && <Link to="/favourites" onClick={() => { scrollTo(0,0); setisOpen(false) }} className='hover:text-primary'>Favourites</Link>}
         
         {/* Mobile Search */}
         <div className='md:hidden w-full px-4'>
@@ -145,7 +145,7 @@ const Navbar = () => {
           </button>
         )}
         {!user ? (
-          <button onClick={openSignIn} className='sm:px-7 sm:py-2 bg-purple-500 hover:bg-purple-600 transition px-4 py-1 rounded-full font-medium cursor-pointer max-md:text-sm'>Login</button>
+          <button onClick={openSignIn} className='sm:px-7 sm:py-2 bg-primary hover:bg-primary-dull transition px-4 py-1 rounded-full font-medium cursor-pointer max-md:text-sm'>Login</button>
         ) : (
           <UserButton>
             <UserButton.MenuItems>
@@ -154,10 +154,7 @@ const Navbar = () => {
           </UserButton>
         )}
       </div>
-      <div className='flex items-center gap-2 min-md:hidden'>
-        <SearchIcon className='w-6 h-6 cursor-pointer' onClick={() => { setisOpen(true) }} />
-        <MenuIcon className='w-8 h-8 cursor-pointer' onClick={() => { setisOpen(true) }} />
-      </div>
+      <MenuIcon className='min-md:hidden w-8 h-8 cursor-pointer' onClick={() => { setisOpen(true) }} />
     </div>
   )
 }
