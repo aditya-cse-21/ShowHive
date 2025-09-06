@@ -85,24 +85,6 @@
 
 ---
 
-## 📱 Screenshots
-
-<div align="center">
-  <h3>Home Page</h3>
-  <img src="Screenshots/Home.png" alt="Home Page" width="800" />
-  
-  <h3>Movie Details</h3>
-  <img src="Screenshots/Moviedetails.png" alt="Movie Details" width="800" />
-  
-  <h3>Seat Selection</h3>
-  <img src="Screenshots/Seatlayout.png" alt="Seat Layout" width="800" />
-  
-  <h3>Admin Dashboard</h3>
-  <img src="Screenshots/Dashboard.png" alt="Admin Dashboard" width="800" />
-</div>
-
----
-
 ## 🛠️ Installation & Setup
 
 ### **Prerequisites**
@@ -299,8 +281,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 Author
 
 **Aditya**
-- GitHub: [@youruseame](https://github.com/yourusername)
-- Email: your.email@example.com
+- GitHub: [@aditya-cse-21](https://github.com/aditya-cse-21)
+- Email: aditya21cse@example.com
 
 ---
 
